@@ -169,22 +169,6 @@ async function checkExtensionStatus() {
   chrome.storage.local.set({
     extensionStatusJSON: { status: 200, message: "<strong>TranscripTonic is running</strong> <br /> Do not turn off captions" },
   });
-
-  // https://stackoverflow.com/a/42518434
-  await fetch(
-    "https://ejnana.github.io/transcripto-status/status-prod.json",
-    { cache: "no-store" }
-  )
-    .then((response) => response.json())
-    .then((result) => {
-      // Write status to chrome local storage
-      chrome.storage.local.set({ extensionStatusJSON: result }, function () {
-        console.log("Extension status fetched and saved")
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
 }
 
 // Returns all elements of the specified selector type and specified textContent. Return array contains the actual element as well as all the upper parents. 

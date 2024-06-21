@@ -66,13 +66,7 @@ function downloadTranscript() {
                 lines.push("")
                 lines.push("")
             }
-
-            // Add branding
-            lines.push("---------------")
-            lines.push("Transcript saved using TranscripTonic Chrome extension (https://chromewebstore.google.com/detail/ciepnfnceimjehngolkijpnbappkkiag)")
-            lines.push("---------------")
-
-
+            
             // Join the lines into a single string, replace "You" with userName from storage
             const textContent = lines.join("\n").replace(/You \(/g, result.userName + " (")
 
